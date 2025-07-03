@@ -4,8 +4,9 @@ import moteus
 import asyncio
 import time
 import matplotlib.pyplot as plt
-import math
+
 import numpy as np
+from datetime import datetime 
 
 
 
@@ -28,8 +29,13 @@ def phidget_start():
 	voltageRatioInput0.setChannel(0)
 	voltageRatioInput1.setChannel(1)
 
+	
+
 	voltageRatioInput0.openWaitForAttachment(5000)
 	voltageRatioInput1.openWaitForAttachment(5000)
+
+	voltageRatioInput0.setDataRate(1000)
+	voltageRatioInput1.setDataRate(1000)
 
 def moteus_start():
 	global c1
@@ -65,7 +71,7 @@ def main():
 			runtime = time.time() - start
 			# print(runtime)
 			len_test = 20
-			peak_trq = -0.7
+			peak_trq = -.4
 			slope = 2 * peak_trq/len_test
 			if runtime > len_test:
 				print("Test completed")
@@ -104,14 +110,14 @@ def main():
 	
 	axs[1, 1].set_title('S-Type Load Cell Output')
 	
+	
 	data = np.column_stack((times, trqs, cmd_trqs, s_ratios, j_ratios))
-	np.savetxt('trq_test_data.csv', data, delimiter=',', header='times, trqs, cmd_trqs, s_ratios, j_ratios', comments='')
-
+	current_time = datetime.now().strftime("%m-%d_%H-%M")
+	np.savetxt(f'trq_test_data_{current_time}.csv', data)
+	
 	fig.suptitle('Torque Test Results', fontsize=16)
 
-	plt.savefig('trq_test_results.png')
-	plt.savefig('trq_test_results.png')
+	plt.savefig(f'trq_test_plot_{current_time}.png')
 	
-
 if __name__ == '__main__':
 	main()
