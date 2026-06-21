@@ -1,2 +1,0 @@
-Tests Conducted 5/12 without any cogging torque compensation with original small spool design and S-type load cell
-

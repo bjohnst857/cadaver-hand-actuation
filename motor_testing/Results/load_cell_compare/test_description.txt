@@ -1,3 +1,0 @@
-tests conducted 7/1, Using big spool and torque compensation
-
-Tests designed to compare inline load cell with s-type load cell

@@ -33,7 +33,7 @@ The project is organized in three layers:
 ├── load_cell_calibration.py   # Interactive load cell calibration + live tension readout
 ├── requirements.txt           # Pinned Python environment
 │
-├── labview/                   # Control libraries + LabVIEW front panels
+├── labview/                   # Control libraries + LabVIEW front panels (see labview/README.md)
 │   ├── labview_moteus_funcs.py  # Single-motor control (move / hold / torque / vel+torque)
 │   ├── moteus_multi.py          # Multi-motor control with per-motor modes
 │   ├── setup_funcs.py           # Controller setup: re-zero, soft position limits
@@ -42,7 +42,11 @@ The project is organized in three layers:
 │
 └── motor_testing/
     ├── Tests/                 # Position, velocity, and torque characterization scripts
-    └── Results/               # Saved plots, CSV logs, and per-experiment notes
+    └── Results/               # Saved plots, CSV logs, and per-experiment notes (see Results/README.md)
+        ├── no_compensation/        # 2025-05-12  baseline, no cogging compensation
+        ├── cogging_compensation/   # 2025-05-17  software cogging compensation
+        ├── big_spool/              # 2025-07-01  large-spool configuration
+        └── load_cell_comparison/   # 2025-07-01  inline vs. S-type load cell
 ```
 
 ## Hardware

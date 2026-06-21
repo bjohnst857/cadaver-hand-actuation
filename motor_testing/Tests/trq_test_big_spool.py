@@ -2,9 +2,8 @@
 Archived torque test for the large-spool drive configuration.
 
 Ramps feedforward torque up and back down (triangle profile) while logging motor
-telemetry and load cell output, then saves the result plot. Kept alongside its
-results as a record of the big-spool experiment; see motor_testing/Tests for the
-maintained test scripts.
+telemetry and load cell output, then saves the result plot. Records the big-spool
+experiment whose figures live in motor_testing/Results/big_spool/.
 """
 
 from Phidget22.Phidget import *
