@@ -141,11 +141,13 @@ def main():
     axs[1, 1].set_title('S-type Ratio')
 
     fig.suptitle('Torque Test Results', fontsize=16)
+
+    # Timestamp shared by the plot and data filenames for this run
+    current_time = datetime.now().strftime("%m-%d_%H-%M")
     plt.savefig(f'trq_test_plot_{current_time}.png')  # Save plot to file
 
     ## Save data to CSV
     data = np.column_stack((times, trqs, cmd_trqs, inline_ratios, tensions))
-    current_time = datetime.now().strftime("%m-%d_%H-%M")
     np.savetxt(f'trq_test_data_{current_time}.csv', data)  # Save data to CSV
     
 # Entry point for script execution
